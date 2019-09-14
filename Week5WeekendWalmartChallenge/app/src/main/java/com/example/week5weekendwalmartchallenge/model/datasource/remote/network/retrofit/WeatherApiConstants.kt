@@ -14,7 +14,6 @@ class WeatherApiConstants {
         const val PATH_FORECAST = "forecast"
         const val QUERY_ZIP = "zip"
         const val QUERY_APPID = "APPID"
-        const val QUERY_ENDER = ",us"
         const val APP_ID = "9471bbc4f1920f712b32b5d946c5807c"
     }
 }

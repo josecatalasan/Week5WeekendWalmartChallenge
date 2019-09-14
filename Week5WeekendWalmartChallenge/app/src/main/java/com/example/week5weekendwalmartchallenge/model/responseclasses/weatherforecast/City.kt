@@ -10,6 +10,15 @@ class City {
     @SerializedName("coord")
     var coord: Coord? = null
 
+    @SerializedName("sunrise")
+    var sunrise: Int = 0
+
+    @SerializedName("timezone")
+    var timezone: Int = 0
+
+    @SerializedName("sunset")
+    var sunset: Int = 0
+
     @SerializedName("name")
     var name: String? = null
 
@@ -17,6 +26,9 @@ class City {
         return "City{" +
                 "country = '" + country + '\''.toString() +
                 ",coord = '" + coord + '\''.toString() +
+                ",sunrise = '" + sunrise + '\''.toString() +
+                ",timezone = '" + timezone + '\''.toString() +
+                ",sunset = '" + sunset + '\''.toString() +
                 ",name = '" + name + '\''.toString() +
                 "}"
     }
