@@ -7,10 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 
 import com.example.week5weekendwalmartchallenge.R
+import com.example.week5weekendwalmartchallenge.databinding.FragmentCurrentWeatherBinding
+import com.example.week5weekendwalmartchallenge.viewmodel.MainActivityViewModel
 
 class CurrentWeatherFragment : Fragment() {
+    lateinit var binder : FragmentCurrentWeatherBinding
+    lateinit var viewModel : MainActivityViewModel
 
 //    private var listener: OnFragmentInteractionListener? = null
 
@@ -20,7 +25,18 @@ class CurrentWeatherFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_current_weather, container, false)
+        super.onCreateView(inflater, container, savedInstanceState)
+        binder = DataBindingUtil.inflate(inflater, R.layout.fragment_current_weather,container, false)
+        var view : View = binder.root
+        viewModel = MainActivityViewModel()
+        binder.viewModel = viewModel
+        return view
+//        return inflater.inflate(R.layout.fragment_current_weather, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.PLACE_HOLDER()
     }
 
 //    fun onButtonPressed(uri: Uri) {

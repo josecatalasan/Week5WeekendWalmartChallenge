@@ -22,10 +22,11 @@ class MainActivity : AppCompatActivity() {
         currentWeatherFragment = CurrentWeatherFragment.newInstance()
         weatherForecastFragment = WeatherForecastFragment.newInstance()
 
-        fragmentManager.beginTransaction().replace(R.id.frameCurrentWeather, currentWeatherFragment, "weather")
-        fragmentManager.beginTransaction().replace(R.id.frameWeatherForecast, weatherForecastFragment, "forecast")
+//        var viewModel = MainActivityViewModel()
+//        viewModel.PLACE_HOLDER()
 
-        var viewModel = MainActivityViewModel()
-        viewModel.PLACE_HOLDER()
+        fragmentManager.beginTransaction().add(R.id.frameCurrentWeather, currentWeatherFragment, "weather").commit()
+//        fragmentManager.beginTransaction().add(R.id.frameWeatherForecast, weatherForecastFragment, "forecast").commit()
+
     }
 }
