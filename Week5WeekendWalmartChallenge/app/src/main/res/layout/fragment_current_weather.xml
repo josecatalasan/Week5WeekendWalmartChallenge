@@ -8,7 +8,7 @@
     <data>
         <variable
             name = "viewModel"
-            type = "com.example.week5weekendwalmartchallenge.viewmodel.MainActivityViewModel"/>
+            type = "com.example.week5weekendwalmartchallenge.viewmodel.CurrentWeatherViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,30 +18,30 @@
         <TextView
             android:id="@+id/tvLocation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/current_weather_style"
             android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:textAlignment="center"
-            android:text="@{viewModel.testVar}"
+            android:text="@{viewModel.location}"
             app:layout_constraintTop_toTopOf="parent"/>
-
         <TextView
             android:id="@+id/tvDateTime"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/current_weather_style"
+            android:text="@{viewModel.datetime}"
             app:layout_constraintTop_toBottomOf="@+id/tvLocation"/>
 
         <TextView
             android:id="@+id/tvTemperature"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/current_weather_style"
+            android:text="@{viewModel.temperature}"
             android:textSize="64sp"
             app:layout_constraintTop_toBottomOf="@+id/tvDateTime"/>
 
         <TextView
             android:id="@+id/tvTempRange"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/current_weather_style"
+            android:text="@{viewModel.tempRange}"
             app:layout_constraintTop_toBottomOf="@+id/tvTemperature"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/tvHumidity"/>
@@ -49,16 +49,17 @@
         <TextView
             android:id="@+id/tvHumidity"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/current_weather_style"
+            android:text="@{viewModel.humidity}"
             app:layout_constraintTop_toBottomOf="@+id/tvTemperature"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/tvTempRange"/>
 
-
         <TextView
             android:id="@+id/tvWeather"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:text="@{viewModel.weather}"
+            style="@style/current_weather_style"
             app:layout_constraintTop_toBottomOf="@+id/tvTempRange"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

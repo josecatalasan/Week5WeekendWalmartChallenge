@@ -29,5 +29,6 @@ class RetrofitHelper {
 
     fun getService() : WeatherApiService {
         return getInstance().create(WeatherApiService::class.java)
+
     }
 }
