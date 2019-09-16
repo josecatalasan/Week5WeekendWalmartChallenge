@@ -22,12 +22,12 @@ class CurrentWeatherFragment : Fragment(), View.OnClickListener {
     }
 
     lateinit var binder : FragmentCurrentWeatherBinding
-    lateinit var viewModel : CurrentWeatherViewModel
+    var viewModel : CurrentWeatherViewModel = CurrentWeatherViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binder = DataBindingUtil.inflate(inflater, R.layout.fragment_current_weather,container, false)
         var view : View = binder.root
-        viewModel = CurrentWeatherViewModel()
+        //viewModel = CurrentWeatherViewModel()
         binder.viewModel = viewModel
 
         var sharedPref = context!!.getSharedPreferences("zip", Activity.MODE_PRIVATE)

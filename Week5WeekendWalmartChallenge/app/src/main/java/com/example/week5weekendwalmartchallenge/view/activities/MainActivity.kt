@@ -22,13 +22,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binder = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = CurrentWeatherViewModel()
-        binder.viewModel = viewModel
-        //setContentView(R.layout.activity_main)
 
         fragmentManager = supportFragmentManager
         currentWeatherFragment = CurrentWeatherFragment.newInstance()
         weatherForecastFragment = WeatherForecastFragment.newInstance()
+
+        binder.viewModel = currentWeatherFragment.viewModel
 
         fragmentManager.beginTransaction().replace(R.id.frameCurrentWeather, currentWeatherFragment, "weather").commit()
 //        fragmentManager.beginTransaction().replace(R.id.frameWeatherForecast, weatherForecastFragment, "forecast").commit()

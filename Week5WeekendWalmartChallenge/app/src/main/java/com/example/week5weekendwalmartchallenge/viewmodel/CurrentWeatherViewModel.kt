@@ -2,11 +2,8 @@ package com.example.week5weekendwalmartchallenge.viewmodel
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.drawable.Drawable
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.graphics.drawable.toDrawable
+import android.util.Log
 import androidx.databinding.BaseObservable
-import androidx.databinding.BindingAdapter
 import com.example.week5weekendwalmartchallenge.R
 import com.example.week5weekendwalmartchallenge.model.datasource.remote.network.retrofit.RetrofitHelper
 import com.example.week5weekendwalmartchallenge.model.datasource.remote.network.retrofit.WeatherApiConstants.Companion.APP_ID
@@ -16,10 +13,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class CurrentWeatherViewModel (): BaseObservable(){
+class CurrentWeatherViewModel : BaseObservable(){
 
     val helper = RetrofitHelper()
-    val colorCutoff = 333.15 // temperature at which the color scheme changes
+    val colorCutoff = 288.706 // temperature at which the color scheme changes
 
     // location, date/time, temperature, tempRange, humidity, weather
     var location : String? = null
@@ -32,10 +29,10 @@ class CurrentWeatherViewModel (): BaseObservable(){
     var tempValue : Double = 0.0
     var tempMaxValue : Double = 0.0
     var tempMinValue : Double = 0.0
+    var background : Int = R.drawable.main_gradient_warm
 
 
     //@DrawableRes
-    var background : Drawable = R.drawable.main_gradient_warm.toDrawable()
 
     fun getCurrentWeather(context : Context?) {
         var sharedPref = context!!.getSharedPreferences("zip", Activity.MODE_PRIVATE)
@@ -75,20 +72,23 @@ class CurrentWeatherViewModel (): BaseObservable(){
         humidity = "Humidity: " + currentWeatherResponse.main!!.humidity.toString() + "%"
         weather = currentWeatherResponse.weather!![0].description
 
-        if(currentWeatherResponse.main!!.temp >= colorCutoff)
-            background = R.drawable.main_gradient_warm.toDrawable()
-        else
-            background = R.drawable.main_gradient_cool.toDrawable()
+//        if(currentWeatherResponse.main!!.temp >= colorCutoff)
+//            background = R.drawable.main_gradient_cool
+//        else
+//            background = R.drawable.main_gradient_warm
+        setBackground()
+
+        Log.d("TAG_TEMPERATURE", ""+background)
 
         notifyChange()
     }
 
-
-    companion object {
-        @BindingAdapter("android:background")
-        fun background(layout: ConstraintLayout, id: Drawable) {
-            layout.background = id
-        }
+    fun setBackground(){
+        if(tempValue >= colorCutoff)
+            background = R.drawable.main_gradient_warm
+        else
+            background = R.drawable.main_gradient_cool
+        notifyChange()
     }
 
 }
