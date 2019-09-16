@@ -15,11 +15,7 @@ import com.example.week5weekendwalmartchallenge.view.dialog.ZipRequestDialog
 import com.example.week5weekendwalmartchallenge.viewmodel.CurrentWeatherViewModel
 import kotlinx.android.synthetic.main.fragment_current_weather.*
 
-class CurrentWeatherFragment : Fragment(), View.OnClickListener {
-
-    override fun onClick(p0: View?) {
-       showDialog(context)
-    }
+class CurrentWeatherFragment : Fragment() {
 
     lateinit var binder : FragmentCurrentWeatherBinding
     var viewModel : CurrentWeatherViewModel = CurrentWeatherViewModel()
@@ -27,7 +23,6 @@ class CurrentWeatherFragment : Fragment(), View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binder = DataBindingUtil.inflate(inflater, R.layout.fragment_current_weather,container, false)
         var view : View = binder.root
-        //viewModel = CurrentWeatherViewModel()
         binder.viewModel = viewModel
 
         var sharedPref = context!!.getSharedPreferences("zip", Activity.MODE_PRIVATE)
@@ -41,7 +36,8 @@ class CurrentWeatherFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnChangeZip.setOnClickListener(this)
+        btnChangeZip.setOnClickListener{showDialog(context)}
+        btnChangeConversion.setOnClickListener{viewModel.setTemps(true)}
     }
 
     override fun onResume() {

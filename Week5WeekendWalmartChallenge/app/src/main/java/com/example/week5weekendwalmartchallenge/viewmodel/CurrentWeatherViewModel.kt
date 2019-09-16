@@ -2,7 +2,6 @@ package com.example.week5weekendwalmartchallenge.viewmodel
 
 import android.app.Activity
 import android.content.Context
-import android.util.Log
 import androidx.databinding.BaseObservable
 import com.example.week5weekendwalmartchallenge.R
 import com.example.week5weekendwalmartchallenge.model.datasource.remote.network.retrofit.RetrofitHelper
@@ -25,14 +24,12 @@ class CurrentWeatherViewModel : BaseObservable(){
     var tempRange : String? = null
     var humidity : String? = null
     var weather : String? = null
+    var background : Int = R.drawable.main_gradient_warm
 
     var tempValue : Double = 0.0
     var tempMaxValue : Double = 0.0
     var tempMinValue : Double = 0.0
-    var background : Int = R.drawable.main_gradient_warm
-
-
-    //@DrawableRes
+    var imperial = true
 
     fun getCurrentWeather(context : Context?) {
         var sharedPref = context!!.getSharedPreferences("zip", Activity.MODE_PRIVATE)
@@ -66,20 +63,11 @@ class CurrentWeatherViewModel : BaseObservable(){
 
         location = currentWeatherResponse.name
         datetime = DataConversionHelper.FormatDateTime(currentWeatherResponse.dt)
-        temperature = DataConversionHelper.KelvinToImperial(tempValue)
-        //temperature = tempValue.toString()
-        tempRange = DataConversionHelper.KelvinToImperial(tempMaxValue) + " / " + DataConversionHelper.KelvinToImperial(tempMinValue)
         humidity = "Humidity: " + currentWeatherResponse.main!!.humidity.toString() + "%"
         weather = currentWeatherResponse.weather!![0].description
 
-//        if(currentWeatherResponse.main!!.temp >= colorCutoff)
-//            background = R.drawable.main_gradient_cool
-//        else
-//            background = R.drawable.main_gradient_warm
+        setTemps(false)
         setBackground()
-
-        Log.d("TAG_TEMPERATURE", ""+background)
-
         notifyChange()
     }
 
@@ -88,6 +76,20 @@ class CurrentWeatherViewModel : BaseObservable(){
             background = R.drawable.main_gradient_warm
         else
             background = R.drawable.main_gradient_cool
+    }
+
+    fun setTemps(change : Boolean){
+        if(change){
+            imperial = !imperial
+        }
+
+        if(imperial){
+            temperature = DataConversionHelper.KelvinToImperial(tempValue)
+            tempRange = DataConversionHelper.KelvinToImperial(tempMaxValue) + " / " + DataConversionHelper.KelvinToImperial(tempMinValue)
+        }else{
+            temperature = DataConversionHelper.KelvinToMetric(tempValue)
+            tempRange = DataConversionHelper.KelvinToMetric(tempMaxValue) + " / " + DataConversionHelper.KelvinToMetric(tempMinValue)
+        }
         notifyChange()
     }
 
