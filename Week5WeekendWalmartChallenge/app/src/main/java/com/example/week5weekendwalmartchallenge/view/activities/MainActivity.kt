@@ -1,7 +1,5 @@
 package com.example.week5weekendwalmartchallenge.view.activities
 
-import android.app.Activity
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil

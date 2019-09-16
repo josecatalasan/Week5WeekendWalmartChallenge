@@ -92,5 +92,4 @@ class CurrentWeatherViewModel : BaseObservable(){
         }
         notifyChange()
     }
-
 }

@@ -22,11 +22,11 @@ class CurrentWeatherFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binder = DataBindingUtil.inflate(inflater, R.layout.fragment_current_weather,container, false)
-        var view : View = binder.root
+        val view : View = binder.root
         binder.viewModel = viewModel
 
-        var sharedPref = context!!.getSharedPreferences("zip", Activity.MODE_PRIVATE)
-        var zip = sharedPref.getString("zip", null)
+        val sharedPref = context!!.getSharedPreferences("zip", Activity.MODE_PRIVATE)
+        val zip = sharedPref.getString("zip", null)
 
         if(zip == null)
             showDialog(context)
@@ -46,7 +46,7 @@ class CurrentWeatherFragment : Fragment() {
     }
 
     fun showDialog(context : Context?){
-        var dialog = ZipRequestDialog(context, viewModel)
+        val dialog = ZipRequestDialog(context, viewModel)
         dialog.showSelf()
     }
 

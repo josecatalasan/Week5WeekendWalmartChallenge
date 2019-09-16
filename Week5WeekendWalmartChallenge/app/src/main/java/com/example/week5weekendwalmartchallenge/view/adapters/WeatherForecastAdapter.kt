@@ -23,10 +23,10 @@ class WeatherForecastAdapter(var forecastList : List<ListItem>) : RecyclerView.A
 
         fun bindViews(listItem: ListItem){
             //TODO format to date
-            var date = Date((listItem.dt) as Long * 1000)
+            val date = Date((listItem.dt).toLong() * 1000)
             itemView.tvHourlyHeader.text = date.toString()
-            itemView.tvHourlyTemp.text = listItem.main!!.temp as String
-            itemView.tvHourlyHumidity.text = listItem.main!!.humidity as String + "%"
+            itemView.tvHourlyTemp.text = listItem.main!!.temp.toString()
+            itemView.tvHourlyHumidity.text = listItem.main!!.humidity.toString() + "%"
         }
     }
 }
