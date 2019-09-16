@@ -62,7 +62,7 @@ class CurrentWeatherViewModel : BaseObservable(){
         tempMinValue = currentWeatherResponse.main!!.tempMin
 
         location = currentWeatherResponse.name
-        datetime = DataConversionHelper.FormatDateTime(currentWeatherResponse.dt)
+        datetime = DataConversionHelper.FormatDateTime(currentWeatherResponse.dt, currentWeatherResponse.timezone)
         humidity = "Humidity: " + currentWeatherResponse.main!!.humidity.toString() + "%"
         weather = currentWeatherResponse.weather!![0].description
 
