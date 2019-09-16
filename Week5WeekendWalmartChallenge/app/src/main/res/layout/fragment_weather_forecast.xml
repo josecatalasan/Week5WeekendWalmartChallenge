@@ -10,7 +10,7 @@
         android:id="@+id/tvHourlyHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HOURLY"
+        android:text="@string/weather_forecast_header"
         android:textSize="24sp"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"/>
