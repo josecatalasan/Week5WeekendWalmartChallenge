@@ -4,4 +4,4 @@ This application was built in Kotlin and uses Retrofit and RxJava to make an API
 
 <img src= "https://github.com/josecatalasan/Week5WeekendWalmartChallenge/blob/master/screenshot1.png?raw=true" width=300> <img src= "https://github.com/josecatalasan/Week5WeekendWalmartChallenge/blob/master/screenshot2.png" width=300>
 <img src= "https://github.com/josecatalasan/Week5WeekendWalmartChallenge/blob/master/screenshot3.png" width=300>
-<img src= "https://github.com/josecatalasan/Week5WeekendWalmartChallenge/blob/master/screenshot4.png" width=300><img src= "https://github.com/josecatalasan/Week5WeekendWalmartChallenge/blob/master/screenshot5.png" width=300>
+<img src= "https://github.com/josecatalasan/Week5WeekendWalmartChallenge/blob/master/screenshot4.png" width=300><img src= "https://github.com/josecatalasan/Week5WeekendWalmartChallenge/blob/master/screenshot5.png" width=300><img src= "https://github.com/josecatalasan/Week5WeekendWalmartChallenge/blob/master/screenshot6.png" width=300>
