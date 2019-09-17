@@ -15,5 +15,5 @@ interface WeatherApiService {
     fun getCurrentWeather(@Query(QUERY_ZIP) zip : String?, @Query(QUERY_APPID) key : String) : Observable<CurrentWeatherResponse>
 
     @GET(WeatherApiConstants.PATH_FORECAST)
-    fun getWeatherForecast(@Query(QUERY_ZIP) zip : String?,  @Query(QUERY_APPID) key : String) : Observable<List<WeatherForecastResponse>>
+    fun getWeatherForecast(@Query(QUERY_ZIP) zip : String?,  @Query(QUERY_APPID) key : String) : Observable<WeatherForecastResponse>
 }

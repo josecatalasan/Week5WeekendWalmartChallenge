@@ -18,7 +18,7 @@
         <TextView
             android:id="@+id/tvLocation"
             android:layout_width="match_parent"
-            style="@style/current_weather_style"
+            style="@style/weather_style"
             android:textStyle="bold"
             android:text="@{viewModel.location}"
             android:layout_marginTop="160dp"
@@ -27,14 +27,14 @@
         <TextView
             android:id="@+id/tvDateTime"
             android:layout_width="match_parent"
-            style="@style/current_weather_style"
+            style="@style/weather_style"
             android:text="@{viewModel.datetime}"
             app:layout_constraintTop_toBottomOf="@+id/tvLocation"/>
 
         <TextView
             android:id="@+id/tvTemperature"
             android:layout_width="match_parent"
-            style="@style/current_weather_style"
+            style="@style/weather_style"
             android:text="@{viewModel.temperature}"
             android:textSize="64sp"
             app:layout_constraintTop_toBottomOf="@+id/tvDateTime"/>
@@ -42,7 +42,7 @@
         <TextView
             android:id="@+id/tvTempRange"
             android:layout_width="0dp"
-            style="@style/current_weather_style"
+            style="@style/weather_style"
             android:text="@{viewModel.tempRange}"
             app:layout_constraintTop_toBottomOf="@+id/tvTemperature"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -51,7 +51,7 @@
         <TextView
             android:id="@+id/tvHumidity"
             android:layout_width="0dp"
-            style="@style/current_weather_style"
+            style="@style/weather_style"
             android:text="@{viewModel.humidity}"
             app:layout_constraintTop_toBottomOf="@+id/tvTemperature"
             app:layout_constraintRight_toRightOf="parent"
@@ -61,7 +61,7 @@
             android:id="@+id/tvWeather"
             android:layout_width="match_parent"
             android:text="@{viewModel.weather}"
-            style="@style/current_weather_style"
+            style="@style/weather_style"
             app:layout_constraintTop_toBottomOf="@+id/tvTempRange"/>
 
         <ImageButton

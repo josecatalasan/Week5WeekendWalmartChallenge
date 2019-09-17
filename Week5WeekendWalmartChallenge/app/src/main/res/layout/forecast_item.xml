@@ -2,22 +2,24 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
 
     <TextView
         android:id="@+id/tvHourlyTime"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"/>
+        android:layout_width="match_parent"
+        style="@style/weather_style"
+        android:layout_marginTop="24dp"/>
 
     <TextView
         android:id="@+id/tvHourlyTemp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        style="@style/weather_style"/>
 
     <TextView
         android:id="@+id/tvHourlyHumidity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        style="@style/weather_style"/>
 
 </LinearLayout>

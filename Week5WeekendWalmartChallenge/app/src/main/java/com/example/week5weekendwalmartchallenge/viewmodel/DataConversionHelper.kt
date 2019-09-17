@@ -20,5 +20,15 @@ class DataConversionHelper {
             var sdf = SimpleDateFormat("MMM dd, yyyy   h:mm aaa", Locale.US)
             return sdf.format(date)
         }
+
+        fun FormatDateTime2(dt : Int) : String{
+            val dayLightSavings = (60*60).toLong()
+            val timeZoneHere = TimeZone.getDefault().rawOffset.toLong()/1000
+
+            var date = Date(((dt.toLong())  * 1000))
+
+            var sdf = SimpleDateFormat("MMM dd, yyyy\nh:mm aaa", Locale.US)
+            return sdf.format(date)
+        }
     }
 }

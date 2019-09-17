@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         binder.viewModel = currentWeatherFragment.viewModel
 
         fragmentManager.beginTransaction().replace(R.id.frameCurrentWeather, currentWeatherFragment, "weather").commit()
-//        fragmentManager.beginTransaction().replace(R.id.frameWeatherForecast, weatherForecastFragment, "forecast").commit()
+        fragmentManager.beginTransaction().replace(R.id.frameWeatherForecast, weatherForecastFragment, "forecast").commit()
 
     }
 
